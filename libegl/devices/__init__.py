@@ -1,5 +1,6 @@
-from libegl.devices.generic import GenericEGLDevice
-from libegl.devices.gbm import GBMDevice
+from .generic import GenericEGLDevice
+from .gbm import GBMDevice
+
 
 def probe():
     for cls in (GenericEGLDevice, GBMDevice):

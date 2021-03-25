@@ -1,4 +1,4 @@
-from tools import LazyFuncCaller
+from .tools import LazyFuncCaller
 
 LIB_NAME = "libgbm.so.1"  # On Ubuntu, package libgbm1
 
@@ -10,5 +10,3 @@ gbm_surface_destroy = LazyFuncCaller(LIB_NAME, 'gbm_surface_destroy')
 
 # found in gbm.h
 GBM_BO_USE_RENDERING = 4
-
-

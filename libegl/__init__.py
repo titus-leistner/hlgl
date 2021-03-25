@@ -1,15 +1,16 @@
 #!/usr/bin/env python
-from .context import EGLContext
-import ctypes
-import OpenGL.EGL as egl
 import os
 import sys
+import ctypes
+
 # if OpenGL was already loaded, we have to reload it after the
 # PYOPENGL_PLATFORM variable is set...
 ogl_module_names = list(k for k in sys.modules.keys() if k.startswith('OpenGL'))
 for mod_name in ogl_module_names:
     del sys.modules[mod_name]
 os.environ['PYOPENGL_PLATFORM'] = 'egl'
+
+import OpenGL.EGL as egl
 
 # we have to define a few missing objects in PyOpenGL implementation
 # (as of version 3.1.0)
@@ -55,3 +56,4 @@ def egl_convert_to_int_array(dict_attrs):
 
 
 # expose objects at this level
+from .context import EGLContext
